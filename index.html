@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link href="vendor/emoji-picker/lib/css/emoji.css" rel="stylesheet">
+    
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="vendor/emoji-picker/lib/js/config.js"></script>
+<script src="vendor/emoji-picker/lib/js/util.js"></script>
+<script src="vendor/emoji-picker/lib/js/jquery.emojiarea.js"></script>
+<script src="vendor/emoji-picker/lib/js/emoji-picker.js"></script>
+</head>
+<body>
+    <div>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ipsum in cum cumque expedita? Adipisci eius repudiandae sint, deserunt blanditiis fuga explicabo modi illum quae vel eos dolorum ad accusantium.
+    </div>
+
+    <div class="messageDiv">
+        <input type="radio" name="mdh" id="mdh1">
+        <input type="radio" name="mdh" id="mdh2">
+        <div class="mdHead">
+            <section class="mdhSearch">
+                <span class="mdi mdi-account-search-outline"></span>
+            </section>
+            <section class="mdhSelectTypeMessage">
+                <label for="mdh1">Personne</label>
+                <label for="mdh2">Groupes</label>
+            </section>
+            <section class="mdhAction">
+                <span class="mdi mdi-menu"></span>
+            </section>
+
+             
+        </div>
+        <div class="mdBody">
+            <div class="mdMessageView">
+                <div class="mdmvList">
+                    <div class="mdmvLMessage otherMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Lorem ipsum dolor Sed nam dolores autem doloremque debitis fugit dolorem nesciunt consequatur aliquam.</section>
+                    </div>
+                    <div class="mdmvLMessage userMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Lorem ipsum  doloremque debitis fugit dolorem nesciunt consequatur aliquam.</section>
+                    </div>
+                    <div class="mdmvLMessage otherMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Sed .</section>
+                    </div>
+                    <div class="mdmvLMessage userMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nam dolores autem doloremque debitis fugit dolorem nesciunt consequatur aliquam.</section>
+                    </div>
+                    <div class="mdmvLMessage otherMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Lorem ipsum dolor sit amet consectetur adipisicing elit.</section>
+                    </div>
+                    <div class="mdmvLMessage userMessage">
+                        <img src="img/h1.jpg" alt="">
+                        <section>Lorem nesciunt consequatur aliquam.</section>
+                    </div>
+                </div>
+                <form action="" class="formSendMessage">
+                    <input type="file" id="messageFile">
+                    <p class="emoji-picker-container">
+						<textarea data-emojiable="true"
+                    data-emoji-input="unicode" type="text" placeholder="Message..."></textarea>
+					</p>
+                    <div class="fsmAction">
+                        <label for="messageFile"><span class="mdi mdi-image"></span></label>
+                        <button type="submit"><span class="mdi mdi-send"></span></button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mdPersonMessageList">
+                <section class="mdplMessagePreview">
+                    <img src="img/h1.jpg" alt="User Message Pic">
+                    <div>
+                        <span>Jhon doe</span>
+                        <span>Lorem, ipsum adipisicing elit. At et quam molestias nisi. Dicta, consectetur numquam! Nisi ?</span>
+                    </div>
+                </section>
+
+                <section class="mdplMessagePreview">
+                    <img src="img/f3.jpg" alt="User Message Pic">
+                    <div>
+                        <span>Chucky</span>
+                        <span>Lorem, ipsum adipisicing elit. At et quam molestias nisi. Dicta, consectetur numquam! Nisi ?</span>
+                    </div>
+                </section>
+
+                <section class="mdplMessagePreview">
+                    <img src="img/h2.jpg" alt="User Message Pic">
+                    <div>
+                        <span>Jason</span>
+                        <span>Lorem, ipsum adipisicing elit. At et quam molestias nisi. Dicta, consectetur numquam! Nisi ?</span>
+                    </div>
+                </section>
+
+                <section class="mdplMessagePreview">
+                    <img src="img/f2.jpg" alt="User Message Pic">
+                    <div>
+                        <span>Jigsaw</span>
+                        <span>Lorem, ipsum adipisicing elit. At et quam molestias nisi. Dicta, consectetur numquam! Nisi ?</span>
+                    </div>
+                </section>
+
+               
+            </div>
+
+            <div class="mdGroupMessageList">
+                <section class="mdglMessagePreview">
+                    <img src="img/h1.jpg" alt="User Message Pic">
+                    <div>
+                        <span>Name</span>
+                        <span>Lorem, ipsum adipisicing elit. At et quam molestias nisi. Dicta, consectetur numquam! Nisi ?</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+   
+    <script>
+        $(function () {
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+                emojiable_selector: '[data-emojiable=true]',
+                assetsPath: 'vendor/emoji-picker/lib/img/',
+                popupButtonClasses: 'icon-smile'
+            });
+
+            window.emojiPicker.discover();
+        });
+    </script>
+    <script>
+        const baseNavMsg = $(".mdHead").html();
+        $(".mdplMessagePreview").click(function()
+        {
+            const userName = $(this).children('div').children().first().html();
+            $(".mdPersonMessageList").css("display",'none');
+            // $(".mdBody").html('')
+            $(".mdMessageView").css('display','flex');
+            // alert(userImg);
+            $(".mdHead").html('<section class="mdhSearch"><span class="mdi mdi-arrow-left-thick closeMessage"></span></section>'+
+            '<section class="mdhSelectTypeMessage"><span>'+userName+'</span></section>'+
+            '<section class="mdhAction"><span class="mdi mdi-text"></span></section>')
+        })
+
+        $(document).on('click',".closeMessage",function()
+        {
+            $(".mdHead").html(baseNavMsg);
+            $(this).parent().parent().next().children().css('display','none');
+            $(".mdPersonMessageList").css("display",'flex');
+            // $(".mdBody").html('')
+            $(".mdMessageView").css('display','none');
+        })
+    </script>
+</body>
+</html>
